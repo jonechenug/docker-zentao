@@ -6,10 +6,13 @@ FROM ubuntu
 
 MAINTAINER oceanwu<wuhaiyang1213@gmail.com>
 
+ENV ZENTAO_VERSION 9.0.1
+
+
 COPY ./run.sh /
 
-ADD http://dl.cnezsoft.com/zentao/8.2.6/ZenTaoPMS.8.2.6.zbox_64.tar.gz /
+ADD http://dl.cnezsoft.com/zentao/$ZENTAO_VERSION/ZenTaoPMS.$ZENTAO_VERSION.zbox_64.tar.gz /
 
-RUN tar zxvf ZenTaoPMS.8.2.6.zbox_64.tar.gz -C /opt/
+RUN tar zxvf ZenTaoPMS.$ZENTAO_VERSION.zbox_64.tar.gz -C /opt/
 
 ENTRYPOINT ["bash", "run.sh"]
